@@ -24,6 +24,9 @@
 3. 猫を見て癒されたい時。
 
 ## 設計書
+![UI Flow(招き猫)](https://user-images.githubusercontent.com/60398389/78630241-32dd8680-78d4-11ea-9481-a326bd9c9254.png)
+![ER図(招き猫)](https://user-images.githubusercontent.com/60398389/78630233-2b1de200-78d4-11ea-97cd-c49a8b30d3e1.png)
+[詳細設計書](https://drive.google.com/file/d/15o1CCbpt5eJgljvARRy6JoqrFm5Y-U7U/view?usp=sharing)
 
 ### 機能一覧
 [こちらのリンク](https://docs.google.com/spreadsheets/d/1-PfDQEiQHOqT6dZEAewjSl-6UWS7DcxfCRTzXxajDRg/edit?usp=sharing)をご覧ください。

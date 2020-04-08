@@ -13,53 +13,53 @@
 ActiveRecord::Schema.define(version: 2020_04_08_061209) do
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "invite_comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "invite_id", null: false
+    t.integer "user_id"
+    t.integer "invite_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "invites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "image_id", null: false
-    t.string "title", null: false
-    t.text "content", null: false
-    t.string "sex", null: false
-    t.string "age", null: false
-    t.string "type", null: false
+    t.integer "user_id"
+    t.string "image_id"
+    t.string "title"
+    t.text "content"
+    t.integer "sex", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "marks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "invite_id", null: false
+    t.integer "user_id"
+    t.integer "invite_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "post_comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "image_id", null: false
-    t.string "title", null: false
-    t.text "content", null: false
-    t.string "sex", null: false
-    t.string "age", null: false
-    t.string "type", null: false
+    t.integer "user_id"
+    t.string "image_id"
+    t.string "title"
+    t.text "content"
+    t.integer "sex", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,10 +70,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_061209) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
-    t.string "handle_name", null: false
-    t.text "profile", null: false
-    t.string "address", null: false
+    t.string "name"
+    t.string "handle_name"
+    t.text "profile"
+    t.integer "prefecture", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

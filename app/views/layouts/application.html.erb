@@ -27,17 +27,17 @@
               <div class="navbar-center navbar-item">
                 <span class="has-text-white"><%= current_user.name %> さんでログイン中</span>
               </div>
-              <div class="navbar-end navbar-item">
-                <%= link_to 'マイページ', "#", class: 'button' %>
-                <%= link_to '募集一覧', "#", class: 'button' %>
-                <%= link_to '投稿一覧', "#", class: 'button' %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button' %>
+              <div class="navbar-end navbar-item has-icons-left">
+                <%= link_to ' マイページ', "#", class: 'nav-link fas fa-user' %>
+                <%= link_to ' 募集一覧', "#", class: 'nav-link fas fa-cat' %>
+                <%= link_to ' 投稿一覧', "#", class: 'nav-link fas fa-paw' %>
+                <%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link fas fa-sign-out-alt' %>
               </div>
             <!-- ログアウト時 -->
             <% else %>
-              <div class="navbar-end navbar-item">
-                <%= link_to '初めての方はこちら', homes_about_path, class: 'button' %>
-                <%= link_to 'ログイン', new_user_session_path, class: 'button' %>
+              <div class="navbar-end navbar-item has-icons-left">
+                <%= link_to ' 初めての方はこちら', homes_about_path, class: 'nav-link fas fa-question-circle' %>
+                <%= link_to ' ログイン', new_user_session_path, class: 'nav-link fas fa-sign-in-alt' %>
               </div>
             <% end %>
         </div>

@@ -4,46 +4,52 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <p class="control has-icons-left">
-      <%= f.text_field :name, autofocus: true, class: "input has-icons-left", placeholder: "氏名", autocomplete: "name" %>
-      <span class="icon is-small is-left"> <i class="fas fa-user"></i> </span>
-    </p>
-  </div>
+  <p class="has-text-success">公開される情報です。</p>
 
   <div class="field">
     <p class="control has-icons-left">
-      <%= f.text_field :handle_name, autofocus: true, class: "input has-icons-left", placeholder: "ハンドルネーム", autocomplete: "handle_name" %>
+      <%= f.text_field :handle_name, autofocus: true, class: "input has-icons-left", placeholder: "ハンドルネーム（例：ねこ子）", autocomplete: "handle_name" %>
       <span class="icon is-small is-left"> <i class="fas fa-user-circle"></i> </span>
     </p>
   </div>
 
   <div class="field">
     <p class="control">
-      <%= f.label "住所" %>
+      <%= f.label "住所（都道府県を選択してください）" %>
       <div class="select">
       <%= f.select :prefecture, User.prefectures.keys, {} %>
       </div>
     </p>
   </div>
 
+  <hr>
+
+  <p class="has-text-success">以下の情報は他の会員には公開されません。</p>
+
   <div class="field">
     <p class="control has-icons-left">
-      <%= f.email_field :email, autofocus: true, class: "input has-icons-left", placeholder: "メールアドレス", autocomplete: "email" %>
+      <%= f.text_field :name, autofocus: true, class: "input has-icons-left", placeholder: "氏名（例：猫田 里子）", autocomplete: "name" %>
+      <span class="icon is-small is-left"> <i class="fas fa-user"></i></span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <%= f.email_field :email, autofocus: true, class: "input has-icons-left", placeholder: "メールアドレス（例：neko@test.co.jp）", autocomplete: "email" %>
       <span class="icon is-small is-left"> <i class="fas fa-envelope"></i> </span>
     </p>
   </div>
 
   <div class="field">
     <p class="control has-icons-left">
-      <%= f.password_field :password, class: "input has-icons-left", placeholder: "パスワード(6文字以上)", autocomplete: "new-password" %>
+      <%= f.password_field :password, class: "input has-icons-left", placeholder: "パスワード（6文字以上）", autocomplete: "new-password" %>
       <span class="icon is-small is-left"> <i class="fas fa-lock"></i> </span>
     </p>
   </div>
 
   <div class="field">
     <p class="control has-icons-left">
-      <%= f.password_field :password_confirmation, class: "input has-icons-left", placeholder: "パスワード(確認のため再度ご入力ください)", autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, class: "input has-icons-left", placeholder: "パスワード（確認のため再度ご入力ください）", autocomplete: "new-password" %>
       <span class="icon is-small is-left"> <i class="fas fa-lock"></i> </span>
     </p>
   </div>

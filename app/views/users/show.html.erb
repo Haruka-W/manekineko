@@ -1,2 +1,39 @@
-<h1>マイページ</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1 class="subtitle is-1 has-text-primary">マイページ</h1>
+
+<div class="columns">
+  <!-- 会員情報表示欄 -->
+  <div class="column is-one-quarter ">
+	<div class="box">
+	  <h3 class="subtitle">会員情報</h3>
+	  	<p>ハンドルネーム</p>
+		<%= @user.handle_name %><br>
+		<p>自己紹介文</p>
+		<%= @user.profile %><br>
+		<p>住所</p>
+		<%= @user.prefecture %><br>
+		<hr>
+		<p>氏名</p>
+		<%= @user.name %><br>
+		<p>メールアドレス</p>
+		<%= @user.email %><br>
+		<p><%= link_to "登録情報変更", edit_user_path(@user), class: "button is-success" %></p>
+	</div>
+  </div>
+
+
+	<div class="column is-three-quarters ">
+	  <!-- 募集一覧 -->
+	  <div class="box">
+		<h3 class="subtitle">
+		  募集掲載中
+		</h3>
+  	  </div>
+	  <!-- 投稿一覧 -->
+  	  <div class="box">
+		<h3 class="subtitle">
+		  投稿
+		</h3>
+  	  </div>
+	</div>
+</div>
+

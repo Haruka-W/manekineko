@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .bg-img {
-    background-image: image-url(img2.jpg);
+    background-image: image-url("img2.jpg");
     background-position: center;
     background-size: cover;
 }

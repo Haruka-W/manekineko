@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.string :handle_name
-      t.text :profile, null: false, default: "よろしくお願いします。"
+      t.text :profile, null: false
       t.integer :prefecture, null: false, default: "0"
       t.timestamps
 

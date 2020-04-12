@@ -13,4 +13,6 @@ class Invite < ApplicationRecord
 		"グレー白": 10, "茶白": 11, "キジ白": 12, "サバ白": 13, "その他": 14
 	}, _prefix: true
 
+	belongs_to :user
+
 end

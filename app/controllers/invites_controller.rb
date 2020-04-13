@@ -5,6 +5,10 @@ class InvitesController < ApplicationController
   end
 
   def index
+    @invite = Invite.all
+    # 検索前の全件表示時
+    @invites = Invite.page(params[:page]).reverse_order
+    @counts = @invites.total_count
   end
 
   def show
@@ -29,7 +33,7 @@ class InvitesController < ApplicationController
   private
 
     def invite_params
-      params.require(:invite).permit(:title, :content, :sex, :age, :type)
+      params.require(:invite).permit(:title, :content, :sex, :age, :type, :image)
     end
 
 end

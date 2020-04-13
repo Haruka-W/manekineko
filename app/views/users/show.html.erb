@@ -1,25 +1,22 @@
-<h1 class="subtitle is-1 has-text-primary">マイページ</h1>
+<h1 class="subtitle is-1 has-text-primary"><%= @user.handle_name %>さんのページ</h1>
 
 <div class="columns">
   <!-- 会員情報表示欄 -->
-  <div class="column is-one-quarter ">
+ 	<div class="column is-one-quarter ">
 	<div class="box">
 	  <h3 class="subtitle">会員情報</h3>
-	  	<p>ハンドルネーム</p>
-		<%= @user.handle_name %><br>
-		<p>自己紹介文</p>
-		<%= @user.profile %><br>
-		<p>住所</p>
-		<%= @user.prefecture %><br>
-		<hr>
-		<p>氏名</p>
-		<%= @user.name %><br>
-		<p>メールアドレス</p>
-		<%= @user.email %><br>
-		<p><%= link_to "登録情報変更", edit_user_path(@user), class: "button is-success" %></p>
+	  	<p>[ ハンドルネーム ]<br><%= @user.handle_name %></p>
+		<p>[ 自己紹介文 ]<br><%= @user.profile %></p>
+		<p>住所<br><%= @user.prefecture %></p>
+		<!-- 以下、ログインしている会員しか表示しない情報 -->
+		<% if @user.id == current_user.id %>
+		  <hr>
+		  <p>[ 氏名 ]<br><%= @user.name %></p>
+		  <p>[ メールアドレス ]<br><%= @user.email %></p>
+		  <p><%= link_to "登録情報変更", edit_user_path(@user), class: "button is-success" %></p>
+		<% end %>
 	</div>
-  </div>
-
+ 	</div>
 
 	<div class="column is-three-quarters ">
 	  <!-- 募集一覧 -->
@@ -29,11 +26,8 @@
 		</h3>
   	  </div>
 	  <!-- 投稿一覧 -->
-  	  <div class="box">
-		<h3 class="subtitle">
-		  投稿
-		</h3>
-  	  </div>
+		<h3 class="subtitle">投稿</h3>
+		<%= render 'posts/index', post: @posts %>
 	</div>
 </div>
 

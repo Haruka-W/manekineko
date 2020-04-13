@@ -29,8 +29,8 @@
               </div>
               <div class="navbar-end navbar-item has-icons-left">
                 <%= link_to ' マイページ', user_path(current_user.id), class: 'nav-link fas fa-user' %>
-                <%= link_to ' 募集一覧', "#", class: 'nav-link fas fa-cat' %>
-                <%= link_to ' 投稿一覧', "#", class: 'nav-link fas fa-paw' %>
+                <%= link_to ' 募集一覧', invites_path, class: 'nav-link fas fa-cat' %>
+                <%= link_to ' 投稿一覧', posts_path, class: 'nav-link fas fa-paw' %>
                 <%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link fas fa-sign-out-alt' %>
               </div>
             <!-- ログアウト時 -->

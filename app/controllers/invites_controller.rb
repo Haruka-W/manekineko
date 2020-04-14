@@ -12,6 +12,7 @@ class InvitesController < ApplicationController
   end
 
   def show
+    @invite = Invite.find(params[:id])
   end
 
   def create
@@ -32,8 +33,8 @@ class InvitesController < ApplicationController
 
   private
 
-    def invite_params
-      params.require(:invite).permit(:title, :content, :sex, :age, :type, :image)
-    end
+  def invite_params
+    params.require(:invite).permit(:title, :content, :sex, :age, :type, :image)
+  end
 
 end

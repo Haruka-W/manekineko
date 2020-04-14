@@ -1,15 +1,17 @@
 <div class="tile is-ancestor">
-  <div class="tile is-parent">
 	<% invite.each do |invite| %>
-	  <div class="box is-one-quarter">
-	  <div class=”tile is-child”>
-		<%= attachment_image_tag invite, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
-		<p>[ タイトル ]<br><%= link_to invite.title, invite_path(invite) %></p>
-		<p>[ 内容 ]<br><%= invite.content %></p>
-		<p>[ 猫情報 ]<br><%= invite.sex %> ／ <%= invite.age %> ／ <%= invite.type %></p>
-		<p>[ 投稿者 ]<br><%= link_to invite.user.handle_name, user_path(invite.user.id) %></p>
-	  </div>
-	  </div>
+	<div class=”tile is-parent”>
+		<div class="card">
+			<div class="card-image">
+				<%= attachment_image_tag invite, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
+			</div>
+			<div class="card-content">
+				<p>[ 募集タイトル ]<br><%= link_to invite.title, invite_path(invite) %></p>
+				<p>[ 内容 ]<br><%= invite.content %></p>
+				<p>[ 猫情報 ]<br><%= invite.sex %> ／ <%= invite.age %> ／ <%= invite.type %></p>
+				<p>[ 掲載者 ]<br><%= link_to invite.user.handle_name, user_path(invite.user.id) %></p>
+			</div>
+		</div>
+	</div>
 	<% end %>
-  </div>
 </div>

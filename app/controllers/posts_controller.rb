@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -32,8 +33,8 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, :content, :sex, :age, :type, :image)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content, :sex, :age, :type, :image)
+  end
 
 end

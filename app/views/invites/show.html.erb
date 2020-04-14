@@ -15,7 +15,7 @@
 			<% if @invite.user == current_user %>
 			<hr>
 			<%= link_to "内容を変更する", edit_invite_path(@invite), class: "button is-success" %>
-			<%= link_to "この募集を削除する", user_path(@invite.user.id), class: "button is-danger", method: :delete, data:{confirm: "本当に消しますか？"} %>
+			<%= link_to "この募集を削除する", invite_path(@invite), class: "button is-danger", method: :delete, data:{confirm: "本当に消しますか？"} %>
 			<% end %>
 		</div>
 	</div>

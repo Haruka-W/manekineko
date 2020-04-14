@@ -23,9 +23,13 @@ class InvitesController < ApplicationController
   end
 
   def edit
+    @invite = Invite.find(params[:id])
   end
 
   def update
+    invite = Invite.find(params[:id])
+    invite.update(invite_params)
+    redirect_to invite_path(invite)
   end
 
   def destroy

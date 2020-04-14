@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @invites = @user.invites
     @posts = @user.posts
   end
 

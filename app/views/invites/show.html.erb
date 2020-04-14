@@ -1,2 +1,34 @@
-<h1>Invites#show</h1>
-<p>Find me in app/views/invites/show.html.erb</p>
+<h1 class="subtitle is-1 has-text-primary">募集詳細ページ</h1>
+
+<div class="tile is-ancestor">
+	<div class="tile is-parent">
+		<!-- 画像表示 -->
+		<div class="tile is-child box">
+			<%= attachment_image_tag @invite, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
+			<hr>
+			<!-- 募集情報 -->
+			<p>[ 募集タイトル ]<br><%= @invite.title %></p>
+			<p>[ 内容 ]<br><%= @invite.content %></p>
+			<p>[ 猫情報 ]<br><%= @invite.sex %> ／ <%= @invite.age %> ／ <%= @invite.type %></p>
+			<p>[ 募集開始日 ]<br><%= @invite.created_at.strftime('%Y/%m/%d') %></p>
+			<!-- ログインしている会員の場合のみ編集と削除ボタンを表示 -->
+			<% if @invite.user == current_user %>
+			<hr>
+			<%= link_to "内容を変更する", edit_invite_path(@invite), class: "button is-success" %>
+			<%= link_to "この募集を削除する", user_path(@invite.user.id), class: "button is-danger", method: :delete, data:{confirm: "本当に消しますか？"} %>
+			<% end %>
+		</div>
+	</div>
+	<div class="tile is-parent">
+		<!-- 会員情報 -->
+		<div class="tile is-child">
+			<h4 class="subtitle">掲載者情報</h4>
+			<p>[ ハンドルネーム ]<br><%= link_to @invite.user.handle_name, user_path(@invite.user.id) %></p>
+			<p>[ 自己紹介文 ]<br><%= @invite.user.profile %></p>
+			<p>[ 住所 ]<br><%= @invite.user.prefecture %></p>
+			<hr>
+			<!-- コメント欄 -->
+			<h4 class="subtitle">コメント欄</h4>
+		</div>
+	</div>
+</div>

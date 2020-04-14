@@ -2,25 +2,27 @@
 <section class="hero is-medium bg-img">
   <div class="hero-body">
     <div class="container has-text-centerd">
-      <h1 class="subtitle is-1 has-text-primary">
+      <h1 class="subtitle is-1 has-text-info">
         「招き猫」へようこそ！
       </h1>
-      <h2 class="subtitle is-4 has-text-primary">
+      <h2 class="subtitle is-4 has-text-info">
         当サイトへ初めてお越しになられた方は<%= link_to "「初めての方はこちら」", "/homes/about" %>をご覧ください
       </h2>
     </div>
   </div>
 </section>
 
+<hr>
+
 <div class="columns">
 	<!-- 募集一覧 -->
-	<div class="column is-half ">
+	<div class="column is-half">
 		<h3 class="subtitle is-4"><%= link_to "里親募集中", invites_path %></h3>
 		<%= render 'invites/index', invite: @invite %>
 	</div>
 
 	<!-- 投稿一覧 -->
-	<div class="column is-half ">
+	<div class="column is-half">
 		<h3 class="subtitle is-4"><%= link_to "うちの子自慢", posts_path %></h3>
 		<%= render 'posts/index', post: @post %>
 	</div>

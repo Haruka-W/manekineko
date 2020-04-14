@@ -4,15 +4,16 @@
   <!-- 会員情報表示欄 -->
  	<div class="column is-one-quarter ">
 	<div class="box">
-	  <h3 class="subtitle">会員情報</h3>
+	  <p class="subtitle is-4">会員情報</p>
 	  	<p>[ ハンドルネーム ]<br><%= @user.handle_name %></p>
 		<p>[ 自己紹介文 ]<br><%= @user.profile %></p>
-		<p>住所<br><%= @user.prefecture %></p>
+		<p>[ 住所 ]<br><%= @user.prefecture %></p>
 		<!-- 以下、ログインしている会員しか表示しない情報 -->
 		<% if @user.id == current_user.id %>
 		  <hr>
 		  <p>[ 氏名 ]<br><%= @user.name %></p>
 		  <p>[ メールアドレス ]<br><%= @user.email %></p>
+		  <br>
 		  <p><%= link_to "登録情報変更", edit_user_path(@user), class: "button is-success" %></p>
 		<% end %>
 	</div>
@@ -20,12 +21,15 @@
 
 	<div class="column is-three-quarters ">
 	  <!-- 募集一覧 -->
-		<h3 class="subtitle">[ 募集掲載中 ]</h3>
+		<p class="subtitle is-3">
+			募集掲載中　　<%= link_to "募集を出す", new_invite_path, class: "button is-info" %>
+		</p>
 		<%= render 'invites/index', invite: @invites %>
 		<hr>
 	  <!-- 投稿一覧 -->
-		<h3 class="subtitle">[ 投稿 ]</h3>
+		<p class="subtitle is-3">
+			投稿　　<%= link_to "投稿する", new_post_path, class: "button is-info" %>
+		</p>
 		<%= render 'posts/index', post: @posts %>
 	</div>
 </div>
-

@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @invites = @user.invites
-    @posts = @user.posts
+    @invites = @user.invites.page(params[:page]).reverse_order
+    @posts = @user.posts.page(params[:page]).reverse_order
   end
 
   def edit

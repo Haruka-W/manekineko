@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
-  	@post = Post.all
+  	@post = Post.page(params[:page]).reverse_order
   	# 検索前の全件表示時
   	@posts = Post.page(params[:page]).reverse_order
   	@counts = @posts.total_count

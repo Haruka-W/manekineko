@@ -5,7 +5,7 @@ class InvitesController < ApplicationController
   end
 
   def index
-    @invite = Invite.all
+    @invite = Invite.page(params[:page]).reverse_order
     # 検索前の全件表示時
     @invites = Invite.page(params[:page]).reverse_order
     @counts = @invites.total_count

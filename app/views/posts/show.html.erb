@@ -15,7 +15,7 @@
 			<% if @post.user == current_user %>
 			<hr>
 			<%= link_to "内容を変更する", edit_post_path(@post), class: "button is-success" %>
-			<%= link_to "この投稿を削除する", user_path(@post.user.id), class: "button is-danger", method: :delete, data:{confirm: "本当に消しますか？"} %>
+			<%= link_to "この投稿を削除する", post_path(@post), class: "button is-danger", method: :delete, data:{confirm: "本当に消しますか？"} %>
 			<% end %>
 		</div>
 	</div>

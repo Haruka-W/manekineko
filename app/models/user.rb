@@ -15,7 +15,10 @@ class User < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
+  # 募集
   has_many :invites, dependent: :destroy
 
+  # 投稿
   has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 end

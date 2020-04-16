@@ -13,6 +13,7 @@ class InvitesController < ApplicationController
 
   def show
     @invite = Invite.find(params[:id])
+    @invite_comment = InviteComment.new
   end
 
   def create

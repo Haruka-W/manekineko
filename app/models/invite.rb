@@ -17,5 +17,6 @@ class Invite < ApplicationRecord
 
 	belongs_to :user
 	attachment :image
+	has_many :invite_comments, dependent: :destroy
 
 end

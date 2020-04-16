@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   # 募集
   has_many :invites, dependent: :destroy
+  has_many :invite_comments, dependent: :destroy
 
   # 投稿
   has_many :posts, dependent: :destroy

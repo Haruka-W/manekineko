@@ -6,6 +6,21 @@
 		<div class="tile is-child box">
 			<%= attachment_image_tag @post, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
 			<hr>
+			<!-- いいね機能ここから -->
+			<div class="box is-pulled-right">
+				<% if @post.favorited_by?(current_user) %>
+				<%= link_to post_favorites_path(@post), method: :delete do %>
+				<i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+				<%= @post.favorites.count %> いいね
+				<% end %>
+				<% else %>
+				<%= link_to post_favorites_path(@post), method: :post do %>
+				<i class="far fa-heart" aria-hidden="true"  style="color: red;"></i>
+				<%= @post.favorites.count %> いいね
+				<% end %>
+				<% end %>
+			</div>
+			<!-- いいね機能ここまで -->
 			<!-- 募集情報 -->
 			<p>[ 投稿タイトル ]<br><%= @post.title %></p>
 			<p>[ 内容 ]<br><%= @post.content %></p>
@@ -31,7 +46,6 @@
 			<!-- コメント欄ここから -->
 			<h4 class="subtitle is-3">コメント欄</h4>
 			<!-- コメントの表示 -->
-			<ol>
 				<% @post.post_comments.each do |post_comment| %>
 				<div class="comment">
 					<div><%= post_comment.comment %></div>
@@ -39,11 +53,10 @@
 					<span class="is-size-7"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
 				</div>
 				<% end %>
-			</ol>
 			<!-- コメント入力フォーム -->
 			<%= form_for [@post, @post_comment] do |f| %>
-				<%= f.text_area :comment, class: "textarea",placeholder: "この投稿への感想などはこちらへどうぞ！" %>
-				<%= f.submit "コメントを送信する", class: "button is-info is-pulled-right" %>
+			<%= f.text_area :comment, class: "textarea",placeholder: "この投稿への感想などはこちらへどうぞ！" %>
+			<%= f.submit "コメントを送信する", class: "button is-info is-pulled-right" %>
 			<% end %>
 			<!-- コメント欄ここまで -->
 		</div>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :invites do
   	resource :invite_comments, only: [:create]
+    resource :marks, only: [:create, :destroy]
   end
 
   resources :posts do

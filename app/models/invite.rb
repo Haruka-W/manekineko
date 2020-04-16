@@ -18,5 +18,9 @@ class Invite < ApplicationRecord
 	belongs_to :user
 	attachment :image
 	has_many :invite_comments, dependent: :destroy
+	has_many :marks, dependent: :destroy
+        def marked_by?(user)
+          marks.where(user_id: user.id).exists?
+        end
 
 end

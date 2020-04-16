@@ -6,6 +6,21 @@
 		<div class="tile is-child box">
 			<%= attachment_image_tag @invite, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
 			<hr>
+			<!-- 気になる機能ここから -->
+			<div class="box is-pulled-right">
+				<% if @invite.marked_by?(current_user) %>
+				<%= link_to invite_marks_path(@invite), method: :delete do %>
+				<i class="fas fa-star" aria-hidden="true" style="color: orange;"></i>
+				<%= @invite.marks.count %> 気になる
+				<% end %>
+				<% else %>
+				<%= link_to invite_marks_path(@invite), method: :post do %>
+				<i class="far fa-star" aria-hidden="true" style="color: orange;"></i>
+				<%= @invite.marks.count %> 気になる
+				<% end %>
+				<% end %>
+			</div>
+			<!-- 気になる機能ここまで -->
 			<!-- 募集情報 -->
 			<p>[ 募集タイトル ]<br><%= @invite.title %></p>
 			<p>[ 内容 ]<br><%= @invite.content %></p>

@@ -48,6 +48,14 @@
     <!-- メインここから -->
     <section class="section">
     <div class="container">
+     <!-- フラッシュメッセージ -->
+      <% if flash.each do |key, message| %>
+        <div class="notification is-<%= key %>">
+        <%= message %>
+        </div>
+      <% end %>
+      <% end %>
+      <!-- 各ページの内容 -->
       <%= yield %>
     </div>
     </section>

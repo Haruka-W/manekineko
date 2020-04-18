@@ -1,6 +1,11 @@
 <h1 class="subtitle is-1 has-text-primary">投稿一覧ページ</h1>
 
 <h5 class="subtitle is-5">投稿件数：全<%= @counts %>件</h5>
-<%= render 'posts/index', post: @post %>
+
+<!-- 検索フォーム -->
+<%= render 'posts/search_form', q: @q %>
+
+<!-- 投稿一覧or検索結果表示 -->
+<%= render 'posts/index', posts: @posts %>
 
 <%= paginate @posts, class: "paginate" %>

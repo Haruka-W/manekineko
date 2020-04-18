@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	add_flash_types :success, :info, :warning, :danger
 
 	protected
-  # 会員新規登録の際にデータ保存する為に以下のカラムを記載
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :handle_name, :prefecture])
-  end
+  	# 会員新規登録の際にデータ保存する為に以下のカラムを記載
+  	def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :handle_name, :prefecture])
+  	end
 end

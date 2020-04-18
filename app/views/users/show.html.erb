@@ -31,7 +31,7 @@
 		<p class="subtitle is-3">
 			投稿　　<%= link_to "投稿する", new_post_path, class: "button is-info" %>
 		</p>
-		<%= render 'posts/index', post: @posts %>
+		<%= render 'posts/index', posts: @posts %>
 		<%= paginate @posts %>
 	</div>
 </div>

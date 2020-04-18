@@ -7,19 +7,11 @@
 			<%= attachment_image_tag @post, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
 			<hr>
 			<!-- いいね機能ここから -->
-			<div class="box is-pulled-right">
-				<% if @post.favorited_by?(current_user) %>
-				<%= link_to post_favorites_path(@post), method: :delete do %>
-				<i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-				<%= @post.favorites.count %> いいね
-				<% end %>
-				<% else %>
-				<%= link_to post_favorites_path(@post), method: :post do %>
-				<i class="far fa-heart" aria-hidden="true"  style="color: red;"></i>
-				<%= @post.favorites.count %> いいね
-				<% end %>
-				<% end %>
+			<% if user_signed_in? %>
+			<div id="post-<%= @post.id %>">
+				<%= render partial: "posts/favorite", locals: { post: @post } %>
 			</div>
+			<% end %>
 			<!-- いいね機能ここまで -->
 			<!-- 募集情報 -->
 			<p>[ 投稿タイトル ]<br><%= @post.title %></p>
@@ -46,13 +38,13 @@
 			<!-- コメント欄ここから -->
 			<h4 class="subtitle is-3">コメント欄</h4>
 			<!-- コメントの表示 -->
-				<% @post.post_comments.each do |post_comment| %>
-				<div class="comment">
-					<div><%= post_comment.comment %></div>
-					<span class="is-size-7"><%= link_to post_comment.user.handle_name, user_path(post_comment.user.id) %></span>
-					<span class="is-size-7"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-				</div>
-				<% end %>
+			<% @post.post_comments.each do |post_comment| %>
+			<div class="comment">
+				<div><%= post_comment.comment %></div>
+				<span class="is-size-7"><%= link_to post_comment.user.handle_name, user_path(post_comment.user.id) %></span>
+				<span class="is-size-7"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+			</div>
+			<% end %>
 			<!-- コメント入力フォーム -->
 			<%= form_for [@post, @post_comment] do |f| %>
 			<%= f.text_area :comment, class: "textarea",placeholder: "この投稿への感想などはこちらへどうぞ！" %>

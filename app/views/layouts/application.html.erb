@@ -37,6 +37,8 @@
             <% else %>
               <div class="navbar-end navbar-item has-icons-left">
                 <%= link_to ' 初めての方はこちら', homes_about_path, class: 'nav-link fas fa-question-circle' %>
+                <%= link_to ' 募集一覧', invites_path, class: 'nav-link fas fa-cat' %>
+                <%= link_to ' 投稿一覧', posts_path, class: 'nav-link fas fa-paw' %>
                 <%= link_to ' ログイン', new_user_session_path, class: 'nav-link fas fa-sign-in-alt' %>
               </div>
             <% end %>
@@ -49,12 +51,14 @@
     <section class="section">
     <div class="container">
      <!-- フラッシュメッセージ -->
+     <div id="flash_messages">
       <% if flash.each do |key, message| %>
         <div class="notification is-<%= key %>">
         <%= message %>
         </div>
       <% end %>
       <% end %>
+     </div>
       <!-- 各ページの内容 -->
       <%= yield %>
     </div>
@@ -63,7 +67,6 @@
 
     <!-- フッターここから -->
     <footer class="footer has-background-primary">
-      <!-- ここにimage_tagでロゴを入れる -->
       <p class="footer-text has-text-white has-text-centered">© 2020 haruka_watanabe</p>
     </footer>
     <!-- フッターここまで -->

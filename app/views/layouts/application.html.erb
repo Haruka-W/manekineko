@@ -49,12 +49,14 @@
     <section class="section">
     <div class="container">
      <!-- フラッシュメッセージ -->
+     <div id="flash_messages">
       <% if flash.each do |key, message| %>
         <div class="notification is-<%= key %>">
         <%= message %>
         </div>
       <% end %>
       <% end %>
+     </div>
       <!-- 各ページの内容 -->
       <%= yield %>
     </div>

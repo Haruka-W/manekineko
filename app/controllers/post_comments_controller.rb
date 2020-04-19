@@ -9,7 +9,7 @@ class PostCommentsController < ApplicationController
     		# redirect_to post_path(@post)
     	else
             flash[:danger] = "コメントを入力してください。"
-            @post_comments = PostComment.where(id: @post)
+            # @post_comments = PostComment.where(id: @post)
     		# redirect_to post_path(@post)
     	end
 	end

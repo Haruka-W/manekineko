@@ -85,3 +85,4 @@ gem 'dotenv-rails'
     gem 'mysql2'
   end
 gem "jquery-rails"
+gem 'carrierwave'

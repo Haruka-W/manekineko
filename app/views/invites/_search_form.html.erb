@@ -4,7 +4,9 @@
 	<div class="field">
 		<%= f.label "性別" %>
 		<p class="control">
-			<%= f.radio_button :sex_eq, 0, {:checked => true}%>
+			<%= f.radio_button :sex_eq, '', {:checked => true}%>
+			<%= f.label "指定しない" %>
+			<%= f.radio_button :sex_eq, 0 %>
 			<%= f.label :sex, "未選択", {value: :未選択} %>
 			<%= f.radio_button :sex_eq, 1 %>
 			<%= f.label :sex_, "オス", {value: :オス} %>
@@ -16,7 +18,9 @@
 	<div class="field">
 		<%= f.label "年齢" %>
 		<p class="control">
-			<%= f.radio_button :age_eq, 0, {:checked => true} %>
+			<%= f.radio_button :age_eq, '', {:checked => true}%>
+			<%= f.label "指定しない" %>
+			<%= f.radio_button :age_eq, 0 %>
 			<%= f.label :age, "未選択", {value: :未選択} %>
 			<%= f.radio_button :age_eq, 1 %>
 			<%= f.label :age, "子猫", {value: :子猫} %>
@@ -31,7 +35,7 @@
 		<%= f.label "種類" %>
 		<p class="control">
 			<div class="select">
-				<%= f.select :type_eq, Invite.types %>
+				<%= f.select :type_eq, Invite.types, :include_blank => '指定しない' %>
 			</div>
 		</p>
 	</div>

@@ -16,8 +16,14 @@
   <%= form_for(@invite) do |f| %>
 
   <div class="field">
+    <%= f.label "写真ファイル" %>
     <%= attachment_image_tag @invite, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
     <%= f.attachment_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label "動画ファイル" %>
+    <%= f.file_field :video, :accept => 'video/*' %>
   </div>
 
   <div class="field">

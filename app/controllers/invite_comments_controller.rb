@@ -14,7 +14,7 @@ class InviteCommentsController < ApplicationController
     	end
 	end
 
-	def destroy
+    def destroy
         @invite_comment = InviteComment.find(params[:invite_id])
         @invite = @invite_comment.invite
         @invite_comment.destroy

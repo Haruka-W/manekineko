@@ -40,7 +40,7 @@ class InvitesController < ApplicationController
   private
 
   def invite_params
-    params.require(:invite).permit(:title, :content, :sex, :age, :type, :image)
+    params.require(:invite).permit(:title, :content, :sex, :age, :type, :image, :video)
   end
 
 end

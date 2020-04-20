@@ -22,5 +22,6 @@ class Invite < ApplicationRecord
         def marked_by?(user)
           marks.where(user_id: user.id).exists?
         end
+    mount_uploader :video, VideoUploader
 
 end

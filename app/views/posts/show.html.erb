@@ -12,7 +12,7 @@
 				<%= render partial: "posts/favorite", locals: { post: @post } %>
 			</div>
 			<% end %>
-			<!-- 募集情報 -->
+			<!-- 投稿情報 -->
 			<p>[ 投稿タイトル ]<br><%= @post.title %></p>
 			<p>[ 内容 ]<br><%= @post.content %></p>
 			<p>[ 猫情報 ]<br><%= @post.sex %> ／ <%= @post.age %> ／ <%= @post.type %></p>
@@ -47,6 +47,7 @@
 				<%= f.submit "コメントを送信する", class: "button is-info is-pulled-right" %>
 				<% end %>
 			</div>
+			<!-- 未ログイン時はメッセージを表示 -->
 			<% else %>
 			<div class="box">
 				<p>

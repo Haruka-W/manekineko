@@ -24,7 +24,7 @@
 		<p class="subtitle is-3">
 			募集掲載中　　<%= link_to "募集を出す", new_invite_path, class: "button is-info" %>
 		</p>
-		<%= render 'invites/index', invite: @invites %>
+		<%= render 'invites/index', invites: @invites %>
 		<%= paginate @invites %>
 		<hr>
 	  <!-- 投稿一覧 -->

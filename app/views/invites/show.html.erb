@@ -6,21 +6,12 @@
 		<div class="tile is-child box">
 			<%= attachment_image_tag @invite, :image, :fill, 700, 450, fallback: "no_image.jpg" %>
 			<hr>
-			<!-- 気になる機能ここから -->
-			<div class="box is-pulled-right">
-				<% if @invite.marked_by?(current_user) %>
-				<%= link_to invite_marks_path(@invite), method: :delete do %>
-				<i class="fas fa-star" aria-hidden="true" style="color: orange;"></i>
-				<%= @invite.marks.count %> 気になる
-				<% end %>
-				<% else %>
-				<%= link_to invite_marks_path(@invite), method: :post do %>
-				<i class="far fa-star" aria-hidden="true" style="color: orange;"></i>
-				<%= @invite.marks.count %> 気になる
-				<% end %>
-				<% end %>
+			<!-- ログイン時のみ気になるボタン表示 -->
+			<% if user_signed_in? %>
+			<div id="invite-<%= @invite.id %>">
+				<%= render partial: "invites/mark", locals: { invite: @invite } %>
 			</div>
-			<!-- 気になる機能ここまで -->
+			<% end %>
 			<!-- 募集情報 -->
 			<p>[ 募集タイトル ]<br><%= @invite.title %></p>
 			<p>[ 内容 ]<br><%= @invite.content %></p>
@@ -45,20 +36,25 @@
 			<hr>
 			<!-- コメント欄ここから -->
 			<h4 class="subtitle is-3">コメント欄</h4>
-			<!-- コメントの表示 -->
-			<ol>
-				<% @invite.invite_comments.each do |invite_comment| %>
-				<div class="comment">
-					<div><%= invite_comment.comment %></div>
-					<span class="is-size-7"><%= link_to invite_comment.user.handle_name, user_path(invite_comment.user.id) %></span>
-					<span class="is-size-7"><%= invite_comment.created_at.strftime('%Y/%m/%d') %></span>
-				</div>
+			<div id="comment_<%= @invite.id %>">
+				<%= render 'invites/comment', invite_comments: @invite.invite_comments %>
+			</div>
+			<!-- ログイン時はコメント入力フォーム表示 -->
+			<% if user_signed_in? %>
+			<div class="comment_form">
+				<%= form_with(model: [@invite, @invite_comment], remote: true) do |f| %>
+				<%= f.text_area :comment, class: "textarea",placeholder: "掲載者への質問はこちらへ" %>
+				<%= f.submit "コメントを送信する", class: "button is-info is-pulled-right" %>
 				<% end %>
-			</ol>
-			<!-- コメント入力フォーム -->
-			<%= form_for [@invite, @invite_comment] do |f| %>
-			<%= f.text_area :comment, class: "textarea",placeholder: "掲載者への質問はこちらへ" %>
-			<%= f.submit "コメントを送信する", class: "button is-info is-pulled-right" %>
+			</div>
+			<!-- 未ログイン時はメッセージを表示 -->
+			<% else %>
+			<div class="box">
+				<p>
+					コメントの投稿は会員のみが利用できます。<br>
+					新規会員登録は<%= link_to "こちら", "/users/sign_up" %>から。
+				</p>
+			</div>
 			<% end %>
 			<!-- コメント欄ここまで -->
 		</div>

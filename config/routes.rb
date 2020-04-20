@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   resources :invites do
-  	resource :invite_comments, only: [:create]
+  	resource :invite_comments, only: [:create, :destroy]
     resource :marks, only: [:create, :destroy]
   end
 

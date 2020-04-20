@@ -20,7 +20,7 @@ class PostCommentsController < ApplicationController
         @post_comment.destroy
         flash[:success] = "コメントを削除しました。"
         # redirect_to post_path(@post_comment.post.id)
-  end
+    end
 
 	private
 

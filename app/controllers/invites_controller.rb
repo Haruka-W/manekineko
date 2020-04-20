@@ -5,10 +5,8 @@ class InvitesController < ApplicationController
   end
 
   def index
-    @invite = Invite.page(params[:page]).reverse_order
-    # 検索前の全件表示時
-    @invites = Invite.page(params[:page]).reverse_order
-    @counts = @invites.total_count
+    @q = Invite.ransack(params[:q])
+    @invites = @q.result.page(params[:page]).reverse_order
   end
 
   def show
@@ -20,7 +18,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     @invite.user_id = current_user.id
     @invite.save
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), flash: {success: "投稿が完了しました。"}
   end
 
   def edit
@@ -30,13 +28,13 @@ class InvitesController < ApplicationController
   def update
     invite = Invite.find(params[:id])
     invite.update(invite_params)
-    redirect_to invite_path(invite)
+    redirect_to invite_path(invite), flash: {success: "変更が完了しました。"}
   end
 
   def destroy
     invite = Invite.find(params[:id])
     invite.destroy
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), flash: {success: "投稿を削除しました。"}
   end
 
   private

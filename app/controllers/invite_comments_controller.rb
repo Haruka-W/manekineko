@@ -9,12 +9,12 @@ class InviteCommentsController < ApplicationController
     		# redirect_to invite_path(@invite)
     	else
             flash[:danger] = "コメントを入力してください。"
-            @invite_comments = InviteComment.where(id: @invite)
+            # @invite_comments = InviteComment.where(id: @invite)
     		# redirect_to invite_path(@invite)
     	end
 	end
 
-	def destroy
+    def destroy
         @invite_comment = InviteComment.find(params[:invite_id])
         @invite = @invite_comment.invite
         @invite_comment.destroy

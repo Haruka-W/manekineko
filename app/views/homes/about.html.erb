@@ -1,18 +1,18 @@
 <div class="columns">
-	<div class="column is-one-third ">
-		<figure class="image is-4by3">
- 			<%= image_tag 'img1.jpg' %>
+	<div class="column is-half">
+		<figure class="image">
+ 			<%= image_tag 'img12.jpg' %>
 		</figure>
 	</div>
 
-	<div class="column is-tow-thirds ">
+	<div class="column is-half">
 		<h3 class="subtitle about">「招き猫」とは？</h3>
 		<p>このサイトは猫を保護した人と猫の里親になりたい人を繋ぐためのサイトです。</p>
 		<p>また、自分の家の可愛い猫の写真を投稿することができるコミュニティサイトでもあります。</p>
 		<hr>
 		<h3 class="subtitle about">どうやって使うの？</h3>
 		<p>投稿された情報の閲覧は誰でも可能ですが、</p>
-		<p>里親への立候補や写真の投稿、募集をかける場合は<%= link_to "会員登録", "/users/sign_up" %>が必要になります。</p>
-		<p>ログイン後のマイページから投稿ができます。</p>
+		<p>募集をかけたり写真を投稿するには<%= link_to "会員登録", "/users/sign_up" %>が必要になります。</p>
+		<p><%= link_to "ログイン", "/users/sign_in" %>後のマイページから投稿ができます。</p>
 	</div>
 </div>

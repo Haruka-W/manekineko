@@ -1,8 +1,7 @@
 class HomesController < ApplicationController
 
   def top
-  	@invites = Invite.limit(2)
-  	@posts = Post.limit(2)
+  	@invites = Invite.order(created_at: :desc).limit(4)
   end
 
   def about

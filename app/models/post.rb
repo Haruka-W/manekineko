@@ -44,9 +44,9 @@ class Post < ApplicationRecord
 
 	# コメント通知の処理
 	def create_notification_comment!(current_user, post_comment_id)
-    	#同じ投稿にコメントしているユーザーに通知を送る。（current_userと投稿ユーザーは除く）
+    	#（ログイン中の会員と投稿者以外で）同じ投稿にコメントしているユーザーに通知を送る
     	temp_ids = PostComment.where(post_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
-    	#取得したユーザーへの通知を作成。（user_idのみ繰り返し取得）
+    	#取得したユーザーへの通知を作成
     	temp_ids.each do |temp_id|
       		save_notification_comment!(current_user, post_comment_id, temp_id['user_id'])
     	end

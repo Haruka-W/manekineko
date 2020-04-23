@@ -1,5 +1,6 @@
-class InvitesController < ApplicationController
+# frozen_string_literal: true
 
+class InvitesController < ApplicationController
   def new
     @invite = Invite.new
   end
@@ -18,7 +19,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     @invite.user_id = current_user.id
     @invite.save
-    redirect_to user_path(current_user.id), flash: {success: "投稿が完了しました。"}
+    redirect_to user_path(current_user.id), flash: { success: '投稿が完了しました。' }
   end
 
   def edit
@@ -28,13 +29,13 @@ class InvitesController < ApplicationController
   def update
     invite = Invite.find(params[:id])
     invite.update(invite_params)
-    redirect_to invite_path(invite), flash: {success: "変更が完了しました。"}
+    redirect_to invite_path(invite), flash: { success: '変更が完了しました。' }
   end
 
   def destroy
     invite = Invite.find(params[:id])
     invite.destroy
-    redirect_to user_path(current_user.id), flash: {success: "投稿を削除しました。"}
+    redirect_to user_path(current_user.id), flash: { success: '投稿を削除しました。' }
   end
 
   private
@@ -42,5 +43,4 @@ class InvitesController < ApplicationController
   def invite_params
     params.require(:invite).permit(:title, :content, :sex, :age, :type, :image, :video)
   end
-
 end

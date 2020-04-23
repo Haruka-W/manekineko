@@ -22,14 +22,20 @@
 	<div class="column is-three-quarters ">
 	  <!-- 募集一覧 -->
 		<p class="subtitle is-3">
-			募集掲載中　　<%= link_to "募集を出す", new_invite_path, class: "button is-info" %>
+			募集掲載中　　
+			<% if @user.id == current_user.id %>
+			  <%= link_to "募集を出す", new_invite_path, class: "button is-info" %>
+			<% end %>
 		</p>
 		<%= render 'invites/index', invites: @invites %>
 		<%= paginate @invites %>
 		<hr>
 	  <!-- 投稿一覧 -->
 		<p class="subtitle is-3">
-			投稿　　<%= link_to "投稿する", new_post_path, class: "button is-info" %>
+			投稿　　
+			<% if @user.id == current_user.id %>
+			  <%= link_to "投稿する", new_post_path, class: "button is-info" %>
+			<% end %>
 		</p>
 		<%= render 'posts/index', posts: @posts %>
 		<%= paginate @posts %>

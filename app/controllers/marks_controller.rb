@@ -4,6 +4,7 @@ class MarksController < ApplicationController
 		@invite = Invite.find(params[:invite_id])
         mark = current_user.marks.new(invite_id: @invite.id)
         mark.save
+        @invite.create_notification_favorite!(current_user)
         # redirect_to invite_path(invite)
 	end
 

@@ -6,6 +6,7 @@ class InviteCommentsController < ApplicationController
     	@invite_comment.user_id = current_user.id
     	if @invite_comment.save
             flash[:success] = "コメントしました。"
+            @invite.create_notification_comment!(current_user, @invite_comment.id)
     		# redirect_to invite_path(@invite)
     	else
             flash[:danger] = "コメントを入力してください。"

@@ -28,6 +28,11 @@
           <span class="has-text-white"><%= current_user.name %> さんでログイン中</span>
         </div>
         <div class="navbar-end navbar-item has-icons-left">
+          <!-- 通知がある時は黄色丸印が表示 -->
+          <% if unchecked_notifications.any? %>
+            <i class="fas fa-exclamation" style="color: lightyellow;"></i>
+          <% end %>
+          <%= link_to ' 通知', notifications_path, class: 'nav-link fas fa-bell' %>
           <%= link_to ' マイページ', user_path(current_user.id), class: 'nav-link fas fa-user' %>
           <%= link_to ' 募集一覧', invites_path, class: 'nav-link fas fa-cat' %>
           <%= link_to ' 投稿一覧', posts_path, class: 'nav-link fas fa-paw' %>

@@ -23,5 +23,50 @@ class Invite < ApplicationRecord
           marks.where(user_id: user.id).exists?
         end
     mount_uploader :video, VideoUploader
+    has_many :notifications, dependent: :destroy
+
+    # 気になる通知の処理
+    def create_notification_favorite!(current_user)
+		temp = Notification.where(["visitor_id = ? and visited_id = ? and invite_id = ? and action = ? ", current_user.id, user_id, id, 'mark'])
+		# blank? = 一度も気になるされていない場合で気になるをされたら通知する
+		if temp.blank?
+		  notification = current_user.active_notifications.new(
+			invite_id: id,
+			visited_id: user_id,
+			action: 'mark'
+		  )
+		  # 自分が自分の投稿に気になるをした時は通知済の扱いをする
+		  if notification.visitor_id == notification.visited_id
+		  	notification.checked = true
+		  end
+		  notification.save if notification.valid?
+		end
+	end
+
+	# コメント通知の処理
+	def create_notification_comment!(current_user, invite_comment_id)
+    	#同じ投稿にコメントしているユーザーに通知を送る。（current_userと投稿ユーザーは除く）
+    	temp_ids = InviteComment.where(invite_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
+    	#取得したユーザーへの通知レコードを作成。
+    	temp_ids.each do |temp_id|
+      		save_notification_comment!(current_user, invite_comment_id, temp_id['user_id'])
+    	end
+    	#投稿者へ通知を作成
+    	save_notification_comment!(current_user, invite_comment_id, user_id)
+	end
+
+	def save_notification_comment!(current_user, invite_comment_id, visited_id)
+	  notification = current_user.active_notifications.new(
+	  invite_id: id,
+	  invite_comment_id: invite_comment_id,
+	  visited_id: visited_id,
+	  action: 'invite_comment'
+	  )
+      # 自分が自分の投稿にコメントした時は通知済の扱いをする
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+	end
 
 end

@@ -2,7 +2,7 @@
 	<%= search_form_for q, url:invites_path do |f| %>
 
 	<div class="field is-grouped">
-		<%= f.label "性別　" %>
+		<%= f.label "性別　", class: "subtitle is-6" %>
 		<p class="control">
 			<%= f.radio_button :sex_eq, '', {:checked => true}%>
 			<%= f.label "指定しない" %>
@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="field is-grouped">
-		<%= f.label "年齢　" %>
+		<%= f.label "年齢　", class: "subtitle is-6" %>
 		<p class="control">
 			<%= f.radio_button :age_eq, '', {:checked => true}%>
 			<%= f.label "指定しない" %>
@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="field is-grouped">
-		<%= f.label "種類" %>
+		<%= f.label "種類", class: "subtitle is-6" %>
 		<p class="control">
 			<div class="select">
 				<%= f.select :type_eq, Invite.types, :include_blank => '指定しない' %>

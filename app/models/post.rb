@@ -23,8 +23,9 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  has_many :notifications, dependent: :destroy
+  # mount_uploader :image_id, ImageUploader
 
+  has_many :notifications, dependent: :destroy
   # いいね通知の処理
   def create_notification_favorite!(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and post_id = ? and action = ? ', current_user.id, user_id, id, 'favorite'])

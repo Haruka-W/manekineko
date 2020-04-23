@@ -24,8 +24,9 @@ class Invite < ApplicationRecord
     marks.where(user_id: user.id).exists?
   end
   mount_uploader :video, VideoUploader
-  has_many :notifications, dependent: :destroy
+  # mount_uploader :image_id, ImageUploader
 
+  has_many :notifications, dependent: :destroy
   # 気になる通知の処理
   def create_notification_favorite!(current_user)
     temp = Notification.where(['visitor_id = ? and visited_id = ? and invite_id = ? and action = ? ', current_user.id, user_id, id, 'mark'])

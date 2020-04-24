@@ -6,10 +6,14 @@
 				<%= attachment_image_tag invite, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
 			</div>
 			<div class="card-content">
-				<p>[ 募集タイトル ]<br><%= link_to invite.title, invite_path(invite) %></p>
-				<p>[ 猫情報 ]<br><%= invite.sex %> ／ <%= invite.age %> ／ <%= invite.type %></p>
-				<p>[ 掲載者 ]<br><%= link_to invite.user.handle_name, user_path(invite.user.id) %></p>
-				<p>[ 掲載日 ]<br><%= invite.created_at.strftime('%Y/%m/%d') %></p>
+				<span class="subtitle is-6">募集タイトル</span>
+				<p><%= link_to invite.title, invite_path(invite) %></p>
+				<span class="subtitle is-6">猫情報</span>
+				<p><%= invite.sex %> ／ <%= invite.age %> ／ <%= invite.type %></p>
+				<span class="subtitle is-6">掲載者</span>
+				<p><%= link_to invite.user.handle_name, user_path(invite.user.id) %></p>
+				<span class="subtitle is-6">掲載日</span>
+				<p><%= invite.created_at.strftime('%Y/%m/%d') %></p>
 			</div>
 		</div>
 	</div>

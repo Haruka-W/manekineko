@@ -11,19 +11,40 @@
 
 .top-video {
   position: relative;
+  background-image: url(/images/img11.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .video-text {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   color: #fff;
   font-size: 180%;
   position: absolute;
   left: 1%;
   top: 45%;
-  z-index: 1;
+  z-index: 2;
 }
 
-video {
-	width: 100%;
-	background: url(imag11.jpg) no-repeat;
+.video-main {
+position:fixed;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: 1;
+}
+
+.about-image {
+  box-shadow: 0 10px 10px 0;
+}
+
+.about-title {
+  border-left: 2px solid mediumaquamarine;
+  padding-left: 10px;
+}
+
+.about-message {
+  margin: 0 15px 0 15px;
+  font-size: 30px;
 }

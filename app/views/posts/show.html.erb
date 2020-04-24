@@ -1,4 +1,4 @@
-<h1 class="subtitle is-1 has-text-primary">投稿詳細ページ</h1>
+<h1 class="title is-1 has-text-primary">投稿詳細ページ</h1>
 
 <div class="tile is-ancestor">
 	<div class="tile is-parent">
@@ -13,10 +13,14 @@
 			</div>
 			<% end %>
 			<!-- 投稿情報 -->
-			<p>[ 投稿タイトル ]<br><%= @post.title %></p>
-			<p>[ 内容 ]<br><%= @post.content %></p>
-			<p>[ 猫情報 ]<br><%= @post.sex %> ／ <%= @post.age %> ／ <%= @post.type %></p>
-			<p>[ 投稿日 ]<br><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+			<span class="subtitle is-6">投稿タイトル</span>
+			<p><%= @post.title %></p>
+			<span class="subtitle is-6">内容</span>
+			<p><%= @post.content %></p>
+			<span class="subtitle is-6">猫情報</span>
+			<p><%= @post.sex %> ／ <%= @post.age %> ／ <%= @post.type %></p>
+			<span class="subtitle is-6">投稿日</span>
+			<p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
 			<!-- ログインしている会員の場合のみ編集と削除ボタンを表示 -->
 			<% if @post.user == current_user %>
 			<hr>
@@ -29,9 +33,12 @@
 		<div class="tile is-child">
 			<!-- 投稿者情報ここから -->
 			<h4 class="subtitle is-3">投稿者情報</h4>
-			<p>[ ハンドルネーム ]<br><%= link_to @post.user.handle_name, user_path(@post.user.id) %></p>
-			<p>[ 自己紹介文 ]<br><%= @post.user.profile %></p>
-			<p>[ 住所 ]<br><%= @post.user.prefecture %></p>
+			<span class="subtitle is-6">ハンドルネーム</span>
+			<p><%= link_to @post.user.handle_name, user_path(@post.user.id) %></p>
+			<span class="subtitle is-6">自己紹介文</span>
+			<p><%= @post.user.profile %></p>
+			<span class="subtitle is-6">住所</span>
+			<p><%= @post.user.prefecture %></p>
 			<!-- 投稿者情報ここまで -->
 			<hr>
 			<!-- コメント欄ここから -->

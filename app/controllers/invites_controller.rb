@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class InvitesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+
   def new
     @invite = Invite.new
   end

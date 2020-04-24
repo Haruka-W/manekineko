@@ -46,36 +46,36 @@ User.create!(
     type: 1
   )
 end
-  Invite.create!(
-    user_id: 1,
-    title: "小凛",
-    content: '猫カフェの子です。とても小柄です。',
-    sex: 2,
-    age: 1,
-    type: 14,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img6.jpg"),
-    video: File.open("#{Rails.root}/public/assets/video/Korin.mp4")
-  )
-  Invite.create!(
-    user_id: 2,
-    title: "ひな",
-    content: '我が家の猫です。美猫です。',
-    sex: 2,
-    age: 3,
-    type: 6,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img1.jpg"),
-    video: File.open("#{Rails.root}/public/assets/video/Hina.mp4")
-  )
-  Invite.create!(
-    user_id: 3,
-    title: "コロン",
-    content: '我が家のアイドルです。大きめです。',
-    sex: 1,
-    age: 2,
-    type: 7,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img2.jpg"),
-    video: File.open("#{Rails.root}/public/assets/video/Koron.mp4")
-  )
+Invite.create!(
+  user_id: 1,
+  title: '小凛',
+  content: '猫カフェの子です。とても小柄です。',
+  sex: 2,
+  age: 1,
+  type: 14,
+  # image_id: File.open("#{Rails.root}/app/assets/images/img6.jpg"),
+  video: File.open("#{Rails.root}/public/assets/video/Korin.mp4")
+)
+Invite.create!(
+  user_id: 2,
+  title: 'ひな',
+  content: '我が家の猫です。美猫です。',
+  sex: 2,
+  age: 3,
+  type: 6,
+  # image_id: File.open("#{Rails.root}/app/assets/images/img1.jpg"),
+  video: File.open("#{Rails.root}/public/assets/video/Hina.mp4")
+)
+Invite.create!(
+  user_id: 3,
+  title: 'コロン',
+  content: '我が家のアイドルです。大きめです。',
+  sex: 1,
+  age: 2,
+  type: 7,
+  # image_id: File.open("#{Rails.root}/app/assets/images/img2.jpg"),
+  video: File.open("#{Rails.root}/public/assets/video/Koron.mp4")
+)
 
 # 投稿のテストデータ10件
 20.times do |n|
@@ -89,29 +89,29 @@ end
   )
 end
 Post.create!(
-    user_id: 1,
-    title: "ハンモック",
-    content: '猫カフェの子です。もふもふ。',
-    sex: 1,
-    age: 2,
-    type: 11,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img7.jpg"),
-  )
+  user_id: 1,
+  title: 'ハンモック',
+  content: '猫カフェの子です。もふもふ。',
+  sex: 1,
+  age: 2,
+  type: 11
+  # image_id: File.open("#{Rails.root}/app/assets/images/img7.jpg"),
+)
 Post.create!(
-    user_id: 2,
-    title: "発見！",
-    content: '何かに気付いたようです。',
-    sex: 2,
-    age: 3,
-    type: 8,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img8.jpg"),
-  )
+  user_id: 2,
+  title: '発見！',
+  content: '何かに気付いたようです。',
+  sex: 2,
+  age: 3,
+  type: 8
+  # image_id: File.open("#{Rails.root}/app/assets/images/img8.jpg"),
+)
 Post.create!(
-    user_id: 3,
-    title: "にっこり",
-    content: 'きっといい夢見てる。',
-    sex: 1,
-    age: 2,
-    type: 9,
-    # image_id: File.open("#{Rails.root}/app/assets/images/img10.jpg"),
-  )
+  user_id: 3,
+  title: 'にっこり',
+  content: 'きっといい夢見てる。',
+  sex: 1,
+  age: 2,
+  type: 9
+  # image_id: File.open("#{Rails.root}/app/assets/images/img10.jpg"),
+)

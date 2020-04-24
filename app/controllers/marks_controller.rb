@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MarksController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @invite = Invite.find(params[:invite_id])
     mark = current_user.marks.new(invite_id: @invite.id)

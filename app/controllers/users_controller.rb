@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: %i[edit update]
   def show
     @user = User.find(params[:id])
     @invites = @user.invites.page(params[:page]).reverse_order

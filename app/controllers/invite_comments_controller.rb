@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class InviteCommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @invite = Invite.find(params[:invite_id])
     @invite_comment = @invite.invite_comments.new(invite_comment_params)
@@ -11,8 +13,8 @@ class InviteCommentsController < ApplicationController
     # redirect_to invite_path(@invite)
     else
       flash[:danger] = 'コメントを入力してください。'
-       # @invite_comments = InviteComment.where(id: @invite)
-       # redirect_to invite_path(@invite)
+      # @invite_comments = InviteComment.where(id: @invite)
+      # redirect_to invite_path(@invite)
     end
   end
 

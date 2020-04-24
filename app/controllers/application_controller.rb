@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success, :info, :warning, :danger
   after_action :flash_message
@@ -17,5 +16,4 @@ class ApplicationController < ActionController::Base
   def flash_message
     flash.discard
   end
-
 end

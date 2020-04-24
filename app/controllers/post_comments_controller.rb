@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PostCommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @post = Post.find(params[:post_id])
     @post_comment = @post.post_comments.new(post_comment_params)
@@ -11,8 +13,8 @@ class PostCommentsController < ApplicationController
     # redirect_to post_path(@post)
     else
       flash[:danger] = 'コメントを入力してください。'
-       # @post_comments = PostComment.where(id: @post)
-       # redirect_to post_path(@post)
+      # @post_comments = PostComment.where(id: @post)
+      # redirect_to post_path(@post)
     end
   end
 

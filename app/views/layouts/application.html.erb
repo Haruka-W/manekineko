@@ -30,7 +30,7 @@
         <div class="navbar-end navbar-item has-icons-left">
           <!-- 通知がある時はマークが出現 -->
           <% if unchecked_notifications.any? %>
-            <i class="fas fa-exclamation" style="color: lightyellow;"></i>
+            <i class="fas fa-exclamation" style="color: yellow;"></i>
           <% end %>
           <%= link_to ' 通知', notifications_path, class: 'nav-link fas fa-bell' %>
           <%= link_to ' マイページ', user_path(current_user.id), class: 'nav-link fas fa-user' %>

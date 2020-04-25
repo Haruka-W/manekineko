@@ -16,18 +16,18 @@ module NotificationsHelper
     # 募集に対するコメント
     when 'invite_comment' then
       @comment = InviteComment.find_by(id: visitor_i_comment)
-      @comment_comment = @comment.comment
-      invite_title = @comment.invite.title
-      tag.a(visitor.handle_name, href: user_path(visitor)) + 'が' + tag.a("募集「#{invite_title}」", href: invite_path(notification.invite_id)) + 'にコメントしました。'
+      # @comment_comment = @comment.comment
+      # invite_title = @comment.invite.title
+      tag.a(visitor.handle_name, href: user_path(visitor)) + 'が' + tag.a("募集「#{notification.invite.title}」", href: invite_path(notification.invite_id)) + 'にコメントしました。'
     # 投稿に対するいいね
     when 'favorite'
       tag.a(notification.visitor.handle_name, href: user_path(visitor)) + 'が' + tag.a("投稿「#{notification.post.title}」", href: post_path(notification.post_id)) + 'にいいねしました。'
     # 投稿に対するコメント
     when 'post_comment' then
       @comment = PostComment.find_by(id: visitor_p_comment)
-      @comment_comment = @comment.comment
-      post_title = @comment.post.title
-      tag.a(visitor.handle_name, href: user_path(visitor)) + 'が' + tag.a("投稿「#{post_title}」", href: post_path(notification.post_id)) + 'にコメントしました。'
+      # @comment_comment = @comment.comment
+      # post_title = @comment.post.title
+      tag.a(visitor.handle_name, href: user_path(visitor)) + 'が' + tag.a("投稿「#{notification.post.title}」", href: post_path(notification.post_id)) + 'にコメントしました。'
     end
   end
 

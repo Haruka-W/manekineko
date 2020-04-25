@@ -11,8 +11,11 @@
  				<p>動画はありません</p>
  			<!-- 動画が登録されていたら再生画面を表示 -->
 			<% else %>
+				<video controls name="media">
+				  <source src=<%= @invite.video_url %> >
+				</video>
 				<!-- <video id="video-main" src="<%= asset_path @invite.video %>" controls></video> -->
-				<%= video_tag @invite.video_url, controls: true, autobuffer: true %>
+				<%#= video_tag @invite.video_url, controls: true, autobuffer: true %>
 			<% end %>
 			<hr>
 			<!-- ログイン時のみ気になるボタン表示 -->

@@ -2,8 +2,8 @@
   <%= notification_form(notification) %>
   <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)})" %></span>
   <br>
-  <% if !@comment.nil? %>
-    <p class="notification-comment">[ <%= @comment.comment %> ]</p>
-  <% end %>
+  <%# if !@comment.nil? %>
+    <!-- <p class="notification-comment">[ <%#= @comment.comment %> ]</p> -->
+  <%# end %>
   <hr>
 </div>

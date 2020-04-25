@@ -1,5 +1,4 @@
 $("#comment_<%= @invite.id %>").html("<%= j(render 'invites/comment', invite_comments: @invite.invite_comments) %>");
-<% if flash.each do |key, message| %>
+<% flash.each do |key, message| %>
 $("#flash_messages").html("<div class='notification is-<%= key %>'><%= message %></div>");
-<% end %>
 <% end %>

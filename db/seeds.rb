@@ -54,7 +54,7 @@ Invite.create!(
   age: 1,
   type: 14,
   # image_id: File.open("#{Rails.root}/app/assets/images/img6.jpg"),
-  video: File.open("#{Rails.root}/public/videos/Korin.mp4")
+  video: File.open("#{Rails.root}/app/assets/videos/Korin.mp4")
 )
 Invite.create!(
   user_id: 2,
@@ -64,7 +64,7 @@ Invite.create!(
   age: 3,
   type: 6,
   # image_id: File.open("#{Rails.root}/app/assets/images/img1.jpg"),
-  video: File.open("#{Rails.root}/public/videos/Hina.mp4")
+  video: File.open("#{Rails.root}/app/assets/videos/Hina.mp4")
 )
 Invite.create!(
   user_id: 3,
@@ -74,7 +74,7 @@ Invite.create!(
   age: 2,
   type: 7,
   # image_id: File.open("#{Rails.root}/app/assets/images/img2.jpg"),
-  video: File.open("#{Rails.root}/public/videos/Koron.mp4")
+  video: File.open("#{Rails.root}/app/assets/videos/Koron.mp4")
 )
 
 # 投稿のテストデータ10件

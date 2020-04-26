@@ -49,7 +49,7 @@
 
 ## 対応ブラウザ
 - Google Chrome
-- Safari
+- Safari  
 ※上記ブラウザでの動作確認済みです。
 
 ## 動作確認

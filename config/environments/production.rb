@@ -93,4 +93,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # 動画再生のため
+  config.public_file_server.enabled = true # Rails5以降
+
 end

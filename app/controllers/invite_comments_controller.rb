@@ -8,12 +8,12 @@ class InviteCommentsController < ApplicationController
     @invite_comment = @invite.invite_comments.new(invite_comment_params)
     @invite_comment.user_id = current_user.id
     if @invite_comment.save
-      flash[:success] = 'コメントしました。'
+      flash.now[:success] = 'コメントしました。'
       @invite.create_notification_comment!(current_user, @invite_comment.id)
       render 'create'
       # redirect_to invite_path(@invite)
     else
-      flash[:danger] = 'コメントを入力してください。'
+      flash.now[:danger] = 'コメントを入力してください。'
       render 'createfail'
       # redirect_to invite_path(@invite)
     end
@@ -23,7 +23,7 @@ class InviteCommentsController < ApplicationController
     @invite_comment = InviteComment.find(params[:invite_id])
     @invite = @invite_comment.invite
     @invite_comment.destroy
-    flash[:success] = 'コメントを削除しました。'
+    flash.now[:success] = 'コメントを削除しました。'
     # redirect_to invite_path(@invite_comment.invite.id)
   end
 

@@ -25,7 +25,7 @@
         <!-- ログイン時 -->
         <% if user_signed_in? %>
         <div class="navbar-center navbar-item">
-          <span class="has-text-white"><%= current_user.name %> さんでログイン中</span>
+          <span class="has-text-white"><%= current_user.handle_name %> さんでログイン中</span>
         </div>
         <div class="navbar-end navbar-item has-icons-left">
           <!-- 通知がある時はマークが出現 -->

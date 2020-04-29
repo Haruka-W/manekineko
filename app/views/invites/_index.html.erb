@@ -3,11 +3,13 @@
 	<div class=”tile is-parent”>
 		<div class="card">
 			<div class="card-image">
-				<%= attachment_image_tag invite, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
+				<%= link_to invite_path(invite) do %>
+					<%= attachment_image_tag invite, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
+				<% end %>
 			</div>
 			<div class="card-content">
 				<span class="subtitle is-6">募集タイトル</span>
-				<p><%= link_to invite.title, invite_path(invite) %></p>
+				<p><%= invite.title %></p>
 				<span class="subtitle is-6">猫情報</span>
 				<p><%= invite.sex %> ／ <%= invite.age %> ／ <%= invite.type %></p>
 				<span class="subtitle is-6">掲載者</span>

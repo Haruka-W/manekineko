@@ -3,11 +3,13 @@
 	<div class=”tile is-parent”>
 		<div class="card">
 			<div class="card-image">
-				<%= attachment_image_tag post, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
+				<%= link_to post_path(post) do %>
+					<%= attachment_image_tag post, :image, :fill, 283, 283, fallback: "no_image.jpg" %>
+				<% end %>
 			</div>
 			<div class="card-content">
 				<span class="subtitle is-6">投稿タイトル</span>
-				<p><%= link_to post.title, post_path(post) %></p>
+				<p><%= post.title %></p>
 				<span class="subtitle is-6">猫情報</span>
 				<p><%= post.sex %> ／ <%= post.age %> ／ <%= post.type %></p>
 				<span class="subtitle is-6">投稿者</span>

@@ -1,4 +1,4 @@
-<h1 class="title is-1 has-text-primary"><%= @user.handle_name %>さんのページ</h1>
+<h1 class="title is-1 has-text-primary"><%= @user.handle_name %>  さんのページ</h1>
 
 <div class="columns">
   <!-- 会員情報表示欄 -->
@@ -12,7 +12,7 @@
 		<span class="subtitle is-6">住所</span>
 		<p><%= @user.prefecture %></p>
 		<!-- 以下、ログインしている会員しか表示しない情報 -->
-		<% if @user.id == current_user.id %>
+		<% if user_signed_in? && @user.id == current_user.id %>
 		  <hr>
 		  <span class="subtitle is-6">氏名</span>
 		  <p><%= @user.name %></p>
@@ -28,7 +28,8 @@
 	  <!-- 募集一覧 -->
 		<p class="subtitle is-3">
 			募集掲載中　　
-			<% if @user.id == current_user.id %>
+
+			<% if user_signed_in? && @user.id == current_user.id %>
 			  <%= link_to "募集を出す", new_invite_path, class: "button is-info" %>
 			<% end %>
 		</p>
@@ -38,7 +39,7 @@
 	  <!-- 投稿一覧 -->
 		<p class="subtitle is-3">
 			投稿　　
-			<% if @user.id == current_user.id %>
+			<% if user_signed_in? && @user.id == current_user.id %>
 			  <%= link_to "投稿する", new_post_path, class: "button is-info" %>
 			<% end %>
 		</p>

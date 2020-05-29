@@ -79,7 +79,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # 追加したもの
 gem 'devise'
 gem 'dotenv-rails'
-gem 'kaminari', '~> 1.1.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'ransack'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
